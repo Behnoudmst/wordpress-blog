@@ -1,0 +1,36 @@
+.card-container {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 20px 20px;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px #ececec;
+    max-width: 350px;
+    min-width: 280px;
+    flex: 1;
+    height: max-content;
+  }
+  .card-container:hover {
+    box-shadow: 0 0 20px #999;
+    cursor: pointer;
+  }
+  
+  
+  .card-container img {
+    max-width: 320px;
+    border-radius: 10px;
+    width: 100%;
+  }
+  
+  .card-container h2 {
+    line-height: 1.6rem;
+  }
+  
+  .btn {
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 14px;
+    text-align: right;
+    color: #777;
+  }
+  
