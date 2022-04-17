@@ -82,12 +82,14 @@ export default function Home({ postsList }) {
         <div className="posts-grid">
           {postsList.map((x,index) => {
             const excerpt = x.node.excerpt;
+            const datePublished = x.node.date.slice(0,10);
             const imgurl = x.node.featuredImage.node.mediaItemUrl;
             return (
             
                 <Card
                 key={index} 
                   title={x.node.title}
+                  date={datePublished}
                   description={parse(excerpt)}
                   src={imgurl}
                   link = {x.node.uri}

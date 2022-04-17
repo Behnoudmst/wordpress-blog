@@ -1,4 +1,4 @@
-import { getAllPostLinks } from "./api/postsFetch";
+import { getAllPostLinks } from "./postsFetch";
 import { request } from "graphql-request";
 import { useRouter } from "next/router";
 import parse from "html-react-parser";

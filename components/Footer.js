@@ -22,7 +22,7 @@ export default function Footer() {
           <p>
             I offer all the services related to web-design and developement. If
             you have a website, I can help you improve the UX, load speed, SEO
-            and more. Let's discuss!
+            and more. Contact me to discuss!
           </p>
         </div>
         <div>
