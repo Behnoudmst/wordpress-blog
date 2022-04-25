@@ -6,6 +6,9 @@ import Link from "next/link";
 import Image from "next/image";
 import Layout from "../components/Layout"
 import Head from "next/head";
+import Comments from "../components/Comments";
+
+
 
 export async function getStaticPaths() {
   const paths = await getAllPostLinks();
@@ -73,17 +76,20 @@ const postDate = newData.date.slice(0,10);
 </Head>
 
     <Layout>
-    <section >
-      <div className="content">
+    <section  className=" md:mx-40 p-12 bg-white mx-auto rounded">
+      <div>
         <Image src={imgURL} alt = {imgAlt} width={600} height={400}/>
 
-      <h1>{data.postBy.title}</h1>
-      <p>Published on {postDate}</p>
+      <h1 className="text-3xl py-4">{data.postBy.title}</h1>
+      <p className="text-lg pb-9" >Published on {postDate}</p>
 
-      {parse(data.postBy.content)} 
+      <article className="text-lg">{parse(data.postBy.content)} </article>
       </div>
       <Link href="/"><button className="under-content-button" >Return to Home</button></Link>
     </section>
+    <Comments />
+  
+
     </Layout>
 
 
@@ -93,5 +99,5 @@ const postDate = newData.date.slice(0,10);
 
     </>
   );
-  // Render post...
+ 
 }

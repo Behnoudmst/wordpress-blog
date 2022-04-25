@@ -9,13 +9,13 @@ function Card (props) {
 
   
     return (
-     <div className="card-container">
-        <Image src={props.src} width ={340} height={220}/>
-        <h2>{props.title}</h2>
+     <div className="place-items-center bg-gray-50 p-8">
+        <Image className="bg-cover" src={props.src} layout="responsive" width={300} height={200}/>
+        <h2 className="text-2xl py-4">{props.title}</h2>
         <span>Published on {props.date}</span>
         <p> {props.description}</p>
         
-          <Link href={props.link}><div className="btn">READ MORE </div></Link>
+          <Link href={props.link}><div className=" cursor-pointer my-4 py-2 rounded bg-gray-600 text-center text-white hover:bg-gray-800 w-36" >READ MORE </div></Link>
         
       </div>
     );

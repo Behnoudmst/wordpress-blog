@@ -54,19 +54,19 @@ export default function Home({ postsList }) {
     <meta author="behnoud mostafaie" />
        </Head>
      
-      <section className="top-section">
-        <div className="content content-top">
-          <div className="item">
-            <h1>Hi, This Is Behnoud</h1>
-            <h2>I am a developer.</h2>
+      <section className="bg-gray-800 center p-10 py-20 ">
+        <div className="flex flex-col-reverse md:flex-row justify-around items-center ">
+          <div className="   text-white">
+            <h1 className="py-2 text-4xl font-bold">Hi, This Is Behnoud</h1>
+            <h2 className="text-2xl py-6">I am a developer.</h2>
 
-            <span>
+            <span className="flex gap-x-4 pb-6 ">
               <FaJs style={icons} /> <FaNodeJs style={icons} />
               <FaReact style={icons} />
               <SiNextdotjs style={icons} />
             </span>
           </div>
-          <Image className="item" src={profile} height={300} width={300} />
+          <Image className="grayscale" src={profile} height={300} width={300} />
         </div>
         <section>
 
@@ -77,9 +77,9 @@ export default function Home({ postsList }) {
       </section>
       {/* ************blog section start ***************** */}
       <section>
-        <h2 className="sec-headings">Blog</h2>
+        <h2 className="text-3xl text-center p-12">Blog</h2>
        
-        <div className="posts-grid">
+        <div className="grid grid-cols-1 md:grid-cols-4	 grid-flow-row gap-3	">
           {postsList.map((x,index) => {
             const excerpt = x.node.excerpt;
             const datePublished = x.node.date.slice(0,10);
