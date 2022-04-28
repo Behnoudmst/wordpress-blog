@@ -2,13 +2,12 @@ import { getAllPostLinks } from "./postsFetch";
 import { request } from "graphql-request";
 import { useRouter } from "next/router";
 import parse from "html-react-parser";
-import Link from "next/link";
 import Image from "next/image";
-import Layout from "../components/Layout"
+import Layout from "../components/Layout";
 import Head from "next/head";
 import Comments from "../components/Comments";
 
-
+import { PrismaClient } from "@prisma/client";
 
 export async function getStaticPaths() {
   const paths = await getAllPostLinks();
@@ -20,7 +19,8 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const query =  `{
+  const prisma = new PrismaClient();
+  const query = `{
     postBy(uri: "${params.url}") {
       id
       date
@@ -41,24 +41,30 @@ export async function getStaticProps({ params }) {
         }
       }
     }
-  }`
-  
+  }`;
+
+  const comments = await prisma.comment.findMany({
+    where: { postName: params.title },
+    select: {
+      idea: true,
+      name: true,
+    },
+  });
 
   const data = await request("https://behnoud.net/ben", query).then((res) => {
     return res;
   });
 
-  return { props: { data } };
+  return { props: { data, comments } };
 }
 
-export default function SinglePost({ data }) {
-
-  const newData = data. postBy
+export default function SinglePost({ data, comments }) {
+  // cleaning the data response
+  const newData = data.postBy;
+  // some de structuring
   const imgURL = newData.featuredImage.node.mediaItemUrl;
-  const  imgAlt = newData.featuredImage.node.altText;
-const postDate = newData.date.slice(0,10);
-
-
+  const imgAlt = newData.featuredImage.node.altText;
+  const postDate = newData.date.slice(0, 10);
 
   const router = useRouter();
 
@@ -68,36 +74,39 @@ const postDate = newData.date.slice(0,10);
     return <div>Loading...</div>;
   }
   return (
-<>
-<Head> 
-    <title>Behnoud Mostafaie | {data.postBy.title}</title>
-    <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <meta author="behnoud mostafaie" />
-</Head>
+    <>
+      <Head>
+        <title>Behnoud Mostafaie | {data.postBy.title}</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta author="behnoud mostafaie" />
+      </Head>
 
-    <Layout>
-    <section  className=" md:mx-40 p-12 bg-white mx-auto rounded">
-      <div>
-        <Image src={imgURL} alt = {imgAlt} width={600} height={400}/>
+      <Layout>
+        <section className=" md:w-2/3 p-12 bg-white mx-auto rounded">
+          <div>
+            <Image className="mx-auto" src={imgURL} alt={imgAlt} width={600} height={400} />
 
-      <h1 className="text-3xl py-4">{data.postBy.title}</h1>
-      <p className="text-lg pb-9" >Published on {postDate}</p>
+            <h1 className="text-3xl py-4">{data.postBy.title}</h1>
+            <p className="text-lg pb-9 font-semibold ">Published on {postDate}</p>
 
-      <article className="text-lg">{parse(data.postBy.content)} </article>
-      </div>
-      <Link href="/"><button className="under-content-button" >Return to Home</button></Link>
-    </section>
-    <Comments />
-  
+            <article className="text-lg">{parse(data.postBy.content)} </article>
+          </div>
+        <div className="mx-auto my-14 md:w-2/3">
+          <h2>Ideas:</h2>
+          {comments.map((x) => {
+            key: {x.id}
+            return <div  className="ml-6 m-4" >
+              
+                <h3>🙎‍♂️ {x.name}</h3>
+                <p>💭 {x.idea}</p>
+              </div>
+            
+          })}
+         </div>
+        </section>
 
-    </Layout>
-
-
-
-
-
-
+        <Comments postName={data.postBy.title} />
+      </Layout>
     </>
   );
- 
 }
