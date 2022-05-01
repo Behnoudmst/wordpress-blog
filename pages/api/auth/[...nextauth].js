@@ -24,15 +24,11 @@ export default NextAuth({
     // ...add more providers here
   ],
  theme: {
-   colorScheme: "dark"
+   colorScheme: "light",
+   brandColor: "#red", // Hex color code
  },
-  
-  // callbacks: {
-  //     async jwt({ token }) {
-  //       token.userRole = "commenter"
-  //       return token
-  //     },
-  //   },
+
+ 
   
     
 })

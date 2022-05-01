@@ -5,8 +5,8 @@ const Yer = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <section className="bg-black text-white p-6 ">
-      <footer className="md:flex md:gap-8 flex-auto p-8">
+    <section className="bg-black text-white md:p-8 p-4 ">
+      <footer className="md:flex md:gap-8 flex-1 ">
         <div>
           <h2 className="text-2xl ">About Me</h2>
           <p>
@@ -34,7 +34,7 @@ export default function Footer() {
           </p>
         </div>
       </footer>
-      <div className="p-10">
+      <div >
         <hr></hr>
         <div className="text-center py-2">
           <p>© {Yer} All rights reserved by Behnoud Mostafaie.</p>

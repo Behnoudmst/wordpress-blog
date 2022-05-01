@@ -7,7 +7,8 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import Comments from "../components/Comments";
 
-import { PrismaClient } from "@prisma/client";
+import { PrismaClient } from '@prisma/client'
+
 
 export async function getStaticPaths() {
   const paths = await getAllPostLinks();
@@ -43,16 +44,17 @@ export async function getStaticProps({ params }) {
     }
   }`;
 
-  const comments = await prisma.comment.findMany({
-    where: { postName: params.title },
-    select: {
-      idea: true,
-      name: true,
-    },
-  });
-
   const data = await request("https://behnoud.net/ben", query).then((res) => {
     return res;
+  });
+
+  const comments = await prisma.comment.findMany({
+    where: { postName: data.postBy.title },
+    select: {
+      idea: true,
+      profilePic: true,
+      name: true,
+    },
   });
 
   return { props: { data, comments } };
@@ -82,29 +84,48 @@ export default function SinglePost({ data, comments }) {
       </Head>
 
       <Layout>
-        <section className=" md:w-2/3 p-12 bg-white mx-auto rounded">
+        <section className=" md:w-2/3 p-6 bg-white mx-auto rounded">
           <div>
-            <Image className="mx-auto" src={imgURL} alt={imgAlt} width={600} height={400} />
+            <Image
+              className="mx-auto"
+              src={imgURL}
+              alt={imgAlt}
+              width={600}
+              height={400}
+            />
 
             <h1 className="text-3xl py-4">{data.postBy.title}</h1>
-            <p className="text-lg pb-9 font-semibold ">Published on {postDate}</p>
+            <p className="text-lg pb-9 font-semibold ">
+              Published on {postDate}
+            </p>
 
             <article className="text-lg">{parse(data.postBy.content)} </article>
           </div>
-        <div className="mx-auto my-14 md:w-2/3">
-          <h2>Ideas:</h2>
-          {comments.map((x) => {
-            key: {x.id}
-            return <div  className="ml-6 m-4" >
-              
-                <h3>🙎‍♂️ {x.name}</h3>
-                <p>💭 {x.idea}</p>
-              </div>
-            
-          })}
-         </div>
+          <div className="mx-auto my-14 ">
+            <h2>Ideas:</h2>
+            {comments[1]  ? '' : '😃 Be the first to write your Idea ...' }
+            {comments.map((x, index) => {
+              return (
+                <div
+                  key={index}
+                  className="ml-6 m-4 flex flex-auto align-baseline items-center"
+                >
+                  <Image
+                    className="rounded-full  mr-3 "
+                    src={x.profilePic}
+                    width={60}
+                    height={60}
+                  />
+                  <div className="ml-3">
+                    <h3> {x.name}</h3>
+                    <p> {x.idea}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </section>
-
+{/* send postname to comments component to identify the comment is for this post */}
         <Comments postName={data.postBy.title} />
       </Layout>
     </>

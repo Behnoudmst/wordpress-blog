@@ -79,7 +79,7 @@ export default function Home({ postsList }) {
       <section>
         <h2 className="text-3xl text-center p-12">Blog</h2>
        
-        <div className="grid grid-cols-1 md:grid-cols-4	 grid-flow-row gap-3	">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 grid-flow-row gap-4 lg:m-5	">
           {postsList.map((x,index) => {
             const excerpt = x.node.excerpt;
             const datePublished = x.node.date.slice(0,10);
