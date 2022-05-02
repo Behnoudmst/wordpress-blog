@@ -35,7 +35,7 @@ export async function getStaticProps() {
    const postsList = await data.posts.edges;
 
   return {
-    props: { postsList },revalidate: 10000,
+    props: { postsList }, revalidate: 3600,
   };
 
  

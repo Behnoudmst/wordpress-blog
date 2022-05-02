@@ -1,4 +1,4 @@
-import { getAllPostLinks } from "./postsFetch";
+import { getAllPostLinks } from "./api/postsFetch";
 import { request } from "graphql-request";
 import { useRouter } from "next/router";
 import parse from "html-react-parser";
@@ -57,7 +57,7 @@ export async function getStaticProps({ params }) {
     },
   });
 
-  return { props: { data, comments } };
+  return { props: { data, comments } , revalidate: 600 };
 }
 
 export default function SinglePost({ data, comments }) {
