@@ -18,7 +18,7 @@ const query = `{
    
   
   }
-}`
+}`;
 
 export async function getAllPostLinks() {
   const data = await request("https://behnoud.net/ben", query).then((res) => {
@@ -50,6 +50,5 @@ export default async function getPostData(url) {
   return {
     url,
     post,
-  }
+  };
 }
- 

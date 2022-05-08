@@ -66,7 +66,7 @@ export default function Home({ postsList }) {
               <SiNextdotjs style={icons} />
             </span>
           </div>
-          <Image className="grayscale" src={profile} height={300} width={300} />
+          <Image className="grayscale" alt="Behnoud Mostafaie" src={profile} height={300} width={300} />
         </div>
         <section>
 

@@ -15,7 +15,7 @@ function Card (props) {
         <span>Published on {props.date}</span>
         <p> {props.description}</p>
         
-          <Link href={props.link}><div className=" cursor-pointer my-4 py-2 rounded bg-gray-600 text-center text-white hover:bg-gray-800 w-36" >READ MORE </div></Link>
+          <Link href={props.link} passHref><div className=" cursor-pointer my-4 py-2 rounded bg-gray-600 text-center text-white hover:bg-gray-800 w-36" >READ MORE </div></Link>
         
       </div>
     );

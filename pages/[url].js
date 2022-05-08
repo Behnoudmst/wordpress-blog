@@ -7,8 +7,7 @@ import Layout from "../components/Layout";
 import Head from "next/head";
 import Comments from "../components/Comments";
 
-import { PrismaClient } from '@prisma/client'
-
+import { PrismaClient } from "@prisma/client";
 
 export async function getStaticPaths() {
   const paths = await getAllPostLinks();
@@ -57,7 +56,7 @@ export async function getStaticProps({ params }) {
     },
   });
 
-  return { props: { data, comments } , revalidate: 600 };
+  return { props: { data, comments }, revalidate: 600 };
 }
 
 export default function SinglePost({ data, comments }) {
@@ -101,9 +100,11 @@ export default function SinglePost({ data, comments }) {
 
             <article className="text-lg">{parse(data.postBy.content)} </article>
           </div>
+
+          {/* ************ comments section ******* */}
           <div className="mx-auto my-14 ">
             <h2>Ideas:</h2>
-            {comments[1]  ? '' : '😃 Be the first to write your Idea ...' }
+            {comments[1] ? "" : "😃 Be the first to write your Idea ..."}
             {comments.map((x, index) => {
               return (
                 <div
@@ -125,7 +126,7 @@ export default function SinglePost({ data, comments }) {
             })}
           </div>
         </section>
-{/* send postname to comments component to identify the comment is for this post */}
+        {/* send postname to comments component to identify the comment is for this post */}
         <Comments postName={data.postBy.title} />
       </Layout>
     </>
