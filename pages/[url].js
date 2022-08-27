@@ -102,9 +102,10 @@ export default function SinglePost({ data, comments }) {
           </div>
 
           {/* ************ comments section ******* */}
-          <div className="mx-auto my-14 ">
+
+          <div className="mx-auto my-14 " id="commentBox">
             <h2>Ideas:</h2>
-            {comments[1] ? "" : "😃 Be the first to write your Idea ..."}
+            {comments[0] ? "" : "😃 Be the first to write your Idea ..."}
             {comments.map((x, index) => {
               return (
                 <div
@@ -116,6 +117,7 @@ export default function SinglePost({ data, comments }) {
                     src={x.profilePic}
                     width={60}
                     height={60}
+                    alt={x.altText}
                   />
                   <div className="ml-3">
                     <h3> {x.name}</h3>

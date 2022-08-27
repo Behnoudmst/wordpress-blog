@@ -24,6 +24,17 @@ export default NextAuth({
   ],
   theme: {
     colorScheme: "light",
-    logo: "../../behnoud.png", // Hex color code
+    logo: "../../behnoud.png", 
   },
+  callbacks: {
+    async redirect({ url, baseUrl }) {
+      // Allows relative callback URLs
+      if (url.startsWith("/")) return `${baseUrl}${url + '#commentBox'}`
+      // Allows callback URLs on the same origin
+      else if (new URL(url).origin === baseUrl) return url
+      return baseUrl
+    }
+  }
 });
+
+
