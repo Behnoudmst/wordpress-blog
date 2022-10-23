@@ -102,7 +102,6 @@ export default function SinglePost({ data, comments }) {
           </div>
 
           {/* ************ comments section ******* */}
-
           <div className="mx-auto my-14 " id="commentBox">
             <h2>Ideas:</h2>
             {comments[0] ? "" : "😃 Be the first to write your Idea ..."}
