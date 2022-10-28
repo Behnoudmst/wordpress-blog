@@ -4,7 +4,7 @@ This is a fully functional front end for wordpress websites with a sqlite and us
 It has comment functionality with a sqlite database and user authentication with google and facebook.
 
 
-To use this template add the following environment variables to the root of your project:
+To use this template add the following environment variables to the root of your project in a .env file:
 
 <!-- I used sqlite database this is the path to the data base file -->
 
