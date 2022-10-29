@@ -17,12 +17,15 @@ WEBSITEURL="The link to your wordpress backend"
 <!-- website url  -->
 
 NEXTAUTH_URL=your_websote_domain
+
 NEXTAUTH_SECRET=Generate_a_secrete_key
 
 <!-- provider details for next auth -->
 
 GOOGLE_ID=
+
 GOOGLE_SECRET=
 
 FACEBOOK_CLIENT_ID=
+
 FACEBOOK_CLIENT_SECRET=
