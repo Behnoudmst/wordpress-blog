@@ -45,7 +45,7 @@ export async function getStaticProps({ params }) {
 
   const data = await request("https://behnoud.net/ben", query).then((res) => {
     return res;
-  });
+  }).catch((e)=>(console.log(e)));
 
   const comments = await prisma.comment.findMany({
     where: { postName: data.postBy.title },
@@ -56,9 +56,12 @@ export async function getStaticProps({ params }) {
     },
   });
 
-  return { props: { data, comments }, revalidate: 600 };
+  return { props: { data, comments }, revalidate: 1800 }; //revalidateing the data from data base and updating if it has changes
 }
 
+
+// rendering page here
+ 
 export default function SinglePost({ data, comments }) {
   // cleaning the data response
   const newData = data.postBy;

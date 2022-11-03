@@ -69,7 +69,7 @@ export default function Comments(props) {
           />
           <label className="font-semibold " htmlFor="validation">
             Please answer security question with a number:
-          </label>{" "}
+          </label>
           <br />
           <input
             className="w-1/2 mt-2 p-4 rounded border-0"
@@ -77,7 +77,7 @@ export default function Comments(props) {
             name="validation"
             type="number"
             placeholder="five plus two equals?"
-          />{" "}
+          />
           <br />
           <button className="btn">Submit</button>
         </form>
