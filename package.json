@@ -10,7 +10,7 @@
   "dependencies": {
     "@prisma/client": "^3.13.0",
     "axios": "^0.26.1",
-    "docker": "^0.2.14",
+    "docker": "^1.0.0",
     "graphql": "^16.0.1",
     "graphql-request": "^3.6.1",
     "html-react-parser": "^1.4.2",
