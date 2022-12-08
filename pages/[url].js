@@ -43,7 +43,7 @@ export async function getStaticProps({ params }) {
     }
   }`;
 
-  const data = await request("https://behnoud.net/ben", query).then((res) => {
+  const data = await request("https://wp.behnoud.net/ben", query).then((res) => {
     return res;
   }).catch((e)=>(console.log(e)));
 
