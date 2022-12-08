@@ -29,7 +29,7 @@ const query = `{
   }`;
 
 export async function getStaticProps() {
-  const data = await request("https://wp.behnoud.net/ben", query).then((res) => {
+  const data = await request(process.env.WEBSITEURL, query).then((res) => {
     return res;
   });
    const postsList = await data.posts.edges;

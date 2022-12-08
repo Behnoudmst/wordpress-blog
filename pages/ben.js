@@ -21,7 +21,7 @@ const query = `
 
 export async function getStaticProps() {
 
-  const data = await request('https://wp.behnoud.net/ben', query).then( (res) => {return res} );
+  const data = await request(process.env.WEBSITEURL, query).then( (res) => {return res} );
 const cat = await  data
 
 return {
