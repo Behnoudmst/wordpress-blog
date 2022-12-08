@@ -21,7 +21,7 @@ const query = `{
 }`;
 
 export async function getAllPostLinks() {
-  const data = await request("https://behnoud.net/ben", query).then((res) => {
+  const data = await request("https://wp.behnoud.net/ben", query).then((res) => {
     return res;
   });
   const postsList = await data.posts.edges;
@@ -38,7 +38,7 @@ export async function getAllPostLinks() {
 }
 
 export default async function getPostData(url) {
-  const data = await request("https://behnoud.net/ben", query).then((res) => {
+  const data = await request("https://wp.behnoud.net/ben", query).then((res) => {
     return res;
   });
   const postsdata = await data.posts.edges;

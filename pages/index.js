@@ -29,7 +29,7 @@ const query = `{
   }`;
 
 export async function getStaticProps() {
-  const data = await request("https://behnoud.net/ben", query).then((res) => {
+  const data = await request("https://wp.behnoud.net/ben", query).then((res) => {
     return res;
   });
    const postsList = await data.posts.edges;
@@ -51,7 +51,6 @@ export default function Home({ postsList }) {
     <Head> 
     <title>Behnoud Mostafaie | Web developer</title>
     <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    <meta author="behnoud mostafaie" />
        </Head>
      
       <section className="bg-gray-800 center p-10 py-20 ">

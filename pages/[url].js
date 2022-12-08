@@ -45,7 +45,7 @@ export async function getStaticProps({ params }) {
 
   const data = await request("https://wp.behnoud.net/ben", query).then((res) => {
     return res;
-  }).catch((e)=>(console.log(e)));
+  }).catch((e) => (console.log(e)));
 
   const comments = await prisma.comment.findMany({
     where: { postName: data.postBy.title },
@@ -61,7 +61,7 @@ export async function getStaticProps({ params }) {
 
 
 // rendering page here
- 
+
 export default function SinglePost({ data, comments }) {
   // cleaning the data response
   const newData = data.postBy;
@@ -82,7 +82,6 @@ export default function SinglePost({ data, comments }) {
       <Head>
         <title>Behnoud Mostafaie | {data.postBy.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta author="behnoud mostafaie" />
       </Head>
 
       <Layout>
