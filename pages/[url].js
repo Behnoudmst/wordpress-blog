@@ -85,7 +85,7 @@ export default function SinglePost({ data, comments }) {
       </Head>
 
       <Layout>
-        <section className=" md:w-2/3 p-6 bg-white mx-auto rounded">
+        <section className="md:w-2/3 p-6 bg-white mx-auto rounded">
           <div>
             <Image
               className="mx-auto"

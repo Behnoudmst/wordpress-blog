@@ -10,7 +10,7 @@ function Card (props) {
   
     return (
      <div className="flex flex-col justify-between bg-gray-50 p-8 rounded shadow">
-        <Image className="bg-cover" src={props.src} layout="responsive" width={300} height={200}/>
+        <Image alt={props.title} className="bg-cover" src={props.src} layout="responsive" width={300} height={200}/>
         <h2 className="text-2xl py-4">{props.title}</h2>
         <span>Published on {props.date}</span>
         <p> {props.description}</p>
