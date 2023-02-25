@@ -73,8 +73,6 @@ export default function SinglePost({ data, comments }) {
 
   const {data: session} = useSession();
 const [comment , setComment] =  useState(comments);
-console.log(comment)
-
 async function deleteComment(id) {
   
   const res = await axios.post('./api/deleteComment' , {id:id})
