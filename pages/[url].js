@@ -6,8 +6,13 @@ import Image from "next/image";
 import Layout from "../components/Layout";
 import Head from "next/head";
 import Comments from "../components/Comments";
-
 import { PrismaClient } from "@prisma/client";
+import { useSession } from "next-auth/react";
+import axios from "axios";
+import { toast } from "react-toastify";
+import { useState } from "react";
+
+
 
 export async function getStaticPaths() {
   const paths = await getAllPostLinks();
@@ -50,19 +55,34 @@ export async function getStaticProps({ params }) {
   const comments = await prisma.comment.findMany({
     where: { postName: data.postBy.title },
     select: {
+      id: true,
       idea: true,
       profilePic: true,
       name: true,
     },
   });
 
-  return { props: { data, comments }, revalidate: 1800 }; //revalidateing the data from data base and updating if it has changes
+
+  return { props: { data, comments  }, revalidate: 1800 }; //revalidateing the data from data base and updating if it has changes
 }
 
 
 // rendering page here
 
 export default function SinglePost({ data, comments }) {
+
+  const {data: session} = useSession();
+const [comment , setComment] =  useState(comments);
+console.log(comment)
+
+async function deleteComment(id) {
+  
+  const res = await axios.post('./api/deleteComment' , {id:id})
+  if (res.status === 200) {
+    toast.success('comment deleted!');
+  setComment(comment.filter( comment => comment.id !== id) );
+}
+}
   // cleaning the data response
   const newData = data.postBy;
   // some de structuring
@@ -106,13 +126,14 @@ export default function SinglePost({ data, comments }) {
           {/* ************ comments section ******* */}
           <div className="mx-auto my-14 " id="commentBox">
             <h2>Ideas:</h2>
-            {comments[0] ? "" : "😃 Be the first to write your Idea ..."}
-            {comments.map((x, index) => {
+            {comment[0] ? "" : "😃 Be the first to write your Idea ..."}
+            {comment.map((x) => {
               return (
                 <div
-                  key={index}
-                  className="ml-6 m-4 flex flex-auto align-baseline items-center"
+                  key={x.id}
+                  className="ml-6 m-4 flex flex-auto align-baseline items-center justify-between"
                 >
+                  <div className="flex flex-auto align-baseline items-center">
                   <Image
                     className="rounded-full  mr-3 "
                     src={x.profilePic}
@@ -124,6 +145,8 @@ export default function SinglePost({ data, comments }) {
                     <h3> {x.name}</h3>
                     <p> {x.idea}</p>
                   </div>
+                  </div>
+                  {  session != null && session.user.name === x.name  ? <button onClick={() => deleteComment(x.id)} className="btn">Delete</button> : null}
                 </div>
               );
             })}
