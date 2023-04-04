@@ -5,22 +5,21 @@ const Yer = new Date().getFullYear();
 
 export default function Footer() {
   return (
-    <section className="bg-black text-white md:p-8 p-4 ">
+    <section className="bg-black text-white md:p-8 p-8 lg:px-48 ">
       <footer className="md:flex md:gap-8 flex-1 ">
         <div>
           <h2 className="text-2xl ">About Me</h2>
           <p>
             I have started designing websites because I needed one to showcase
             my photography. Then my friends wanted one for their photography and
-            eventually I became a web designer. I constantly try to learn
-            cutting edge technologies and update my knoweledge.
+            eventually I became a web designer and I love it!
           </p>
         </div>
 
         <div>
           <h2 className="text-2xl ">Hire Me</h2>
           <p>
-            I offer all the services related to web-design and developement. If
+            I offer services related to web & app design and developement. If
             you have a website, I can help you improve the UX, load speed, SEO
             and more. Contact me to discuss!
           </p>
