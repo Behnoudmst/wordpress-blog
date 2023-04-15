@@ -70,7 +70,7 @@ export default function Home({ postsList }) {
             <Link href="mailto:behnoud.mostafaie@gmail.com" passHref><div className="cursor-pointer  py-2 rounded-lg bg-gray-600  text-white  hover:outline hover:outline-1  w-36 text-center " >CONTACT ME</div></Link>
 
           </div>
-          <Image className="grayscale object-contain" alt="Behnoud Mostafaie" src={profile} height={300} width={300} />
+          <Image priority="true" className="grayscale object-contain" alt="Behnoud Mostafaie" src={profile} height={300} width={300} />
         </div>
       </section>
       <section className= "bg-slate-800 lg:px-48 px-8">

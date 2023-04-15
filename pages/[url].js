@@ -107,6 +107,7 @@ async function deleteComment(id) {
         <section className="md:w-2/3 p-6 bg-white mx-auto rounded">
           <div>
             <Image
+            priority="true"
               className="mx-auto"
               src={imgURL}
               alt={imgAlt}
