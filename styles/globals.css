@@ -29,3 +29,7 @@
   .btn {
       @apply py-2 px-3 bg-gray-500 hover:bg-black text-white rounded my-4 cursor-pointer
   }
+
+  section{
+    @apply lg:py-12
+  }
