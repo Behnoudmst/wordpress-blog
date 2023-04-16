@@ -1,5 +1,4 @@
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-
+import Document, { Html, Head, Main,NextScript  } from 'next/document';
 export default class MyDocument extends Document {
   render() {
     return (
@@ -7,7 +6,7 @@ export default class MyDocument extends Document {
         <Head>
           {/* Global Site Tag (gtag.js) - Google Analytics */}
           <script
-            async
+            async={true}
             src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS}`}
           />
           <script
