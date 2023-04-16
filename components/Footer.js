@@ -38,9 +38,9 @@ export default function Footer() {
         <div className="text-center py-2">
           <p>© {Yer} All rights reserved by Behnoud Mostafaie.</p>
           <div className="flex mx-auto w-max py-4 gap-3">
-            <a href="https://www.linkedin.com/in/behnoudmst/"><FaLinkedin  style={icons}/></a>
-             <a href="https://www.instagram.com/behnoud.mst/"><FaInstagram style={icons} /></a>
-             <a href="https://codepen.io/Benmst/"><FaCodepen style={icons} /></a>
+            <a aria-label="LinkedIn icon link" href="https://www.linkedin.com/in/behnoudmst/"><FaLinkedin  style={icons}/></a>
+             <a aria-label="Instagram icon link" href="https://www.instagram.com/behnoud.mst/"><FaInstagram  style={icons} /></a>
+             <a aria-label="CodePen icon link" href="https://codepen.io/Benmst/"><FaCodepen  style={icons} /></a>
             
           </div>
         </div>

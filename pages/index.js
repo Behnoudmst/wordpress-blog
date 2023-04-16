@@ -53,6 +53,7 @@ export default function Home({ postsList }) {
       <Head>
         <title>Behnoud Mostafaie | IT Project Manager & Web Developer</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+        <meta name="description" content="I'm Behnoud Mostafaie, IT manager and web developer with over 7 years of experience. If you need a website, web app or mobile app, I can help you do it the right way. let's Connect!" />
       </Head>
 
       <section className="bg-slate-700 center p-10 py-20 lg:px-48 ">
