@@ -35,7 +35,7 @@ export default function Comments(props) {
   // *******************Check to see if user is logged in or not and display comment form *************
   if (session) {
     return (
-      <div className="rounded-xl shadow md:p-10 p-4 md:w-2/4 md:mx-auto m-4">
+      <div id="commentBox" className="rounded-xl shadow md:p-10 p-4 md:w-2/4 md:mx-auto m-4">
         <ToastContainer position="top-center" />
         <div className="flex justify-between mb-6">
           <div className="flex items-center ">
