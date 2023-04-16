@@ -19,7 +19,7 @@
         @apply list-disc ml-8;
     }
     a {
-        @apply text-slate-400;
+        @apply text-blue-600;
     }
     input {
         @apply py-2 border-2 shadow rounded
