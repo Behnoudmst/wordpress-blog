@@ -19,7 +19,7 @@ export default function Footer() {
         <div>
           <h2 className="text-2xl ">Hire Me</h2>
           <p>
-            I offer services related to web & app design and developement. If
+            I offer services related to web & app design and development. If
             you have a website, I can help you improve the UX, load speed, SEO
             and more. Contact me to discuss!
           </p>
