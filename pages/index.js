@@ -74,7 +74,7 @@ export default function Home({ postsList }) {
           <Image priority="true" className="grayscale object-contain" alt="Behnoud Mostafaie" src={profile} height={300} width={300} />
         </div>
       </section>
-      <section className= "bg-slate-800 lg:px-48 px-8">
+      <section className= "bg-slate-800 lg:px-48 px-8 pb-8">
         <h2 className="text-4xl ml-5 py-12 text-white text-center">Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8 lg:m-5 ">
           <div className=" gap-4 text-white border bg-gradient-to-l from-pink-500 via-red-500 to-yellow-500 border-red-500 shadow-xl shadow-red-900  rounded-xl p-1">
@@ -118,7 +118,7 @@ export default function Home({ postsList }) {
       </section>
 
       {/* ************blog section start ***************** */}
-      <section className=" bg-slate-900 lg:px-48 px-8">
+      <section className=" bg-slate-900 lg:px-48 px-8 pb-8">
         <h2 className=" text-center text-white text-4xl py-12">Blog</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 grid-flow-row gap-8 lg:m-5	">

@@ -123,9 +123,9 @@ export default function SinglePost({ data, comments, postUrl }) {
             <article className="text-lg">{parse(data.postBy.content)} </article>
           </div>
           {/* ****************** share buttons ******************** */}
-          <div className="lg:flex lg:justify-between py-4 md:p-6 bg-slate-100 rounded-md">
+          <div className="lg:flex lg:justify-between p-4 md:p-6 bg-slate-100 rounded-md">
             <h3 className=" text-center md:text-left">Please share this article:</h3>
-            <div className="flex justify-around lg:block">
+            <div className="flex justify-between">
             <LinkedinShareButton title={data.postBy.title} url={postUrl}>
               <LinkedinIcon round className="md:mx-2" size={42} />
             </LinkedinShareButton>
@@ -149,7 +149,8 @@ export default function SinglePost({ data, comments, postUrl }) {
 
           {/* ************ comments section ******* */}
           <div className="mx-auto my-14 " id="commentBox">
-            <h2>Ideas:</h2>
+            <h2>Post a comment:</h2>
+            <hr />
             {comment[0] ? "" : "😃 Be the first to write your Idea ..."}
             {comment.map((x) => {
               return (
@@ -157,7 +158,7 @@ export default function SinglePost({ data, comments, postUrl }) {
                   key={x.id}
                   className="ml-6 m-4 flex flex-auto align-baseline items-center justify-between"
                 >
-                  <div className="flex flex-auto align-baseline items-center">
+                  <div className="flex p-2 rounded-lg bg-slate-50 border-slate-200 border border-spacing-1 flex-auto align-baseline items-center">
                     <Image
                       className="rounded-full  mr-3 "
                       src={x.profilePic}
