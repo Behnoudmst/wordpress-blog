@@ -11,7 +11,7 @@ import { useSession } from "next-auth/react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useState } from "react";
-
+import { FacebookShareButton, FacebookIcon, LinkedinShareButton,LinkedinIcon, TelegramShareButton,TelegramIcon, WhatsappShareButton,WhatsappIcon, EmailShareButton, EmailIcon, TwitterShareButton, TwitterIcon } from "react-share";
 
 
 export async function getStaticPaths() {
@@ -47,7 +47,8 @@ export async function getStaticProps({ params }) {
       }
     }
   }`;
-
+const postUrl = `https://behnoud.net/${params.url}`;
+console.log(postUrl)
   const data = await request(process.env.WEBSITEURL, query).then((res) => {
     return res;
   }).catch((e) => (console.log(e)));
@@ -63,31 +64,30 @@ export async function getStaticProps({ params }) {
   });
 
 
-  return { props: { data, comments  }, revalidate: 1800 }; //revalidateing the data from data base and updating if it has changes
+  return { props: { data, comments,postUrl}, revalidate: 1800 }; //revalidateing the data from data base and updating if it has changes
 }
 
 
 // rendering page here
 
-export default function SinglePost({ data, comments }) {
+export default function SinglePost({ data, comments, postUrl }) {
 
-  const {data: session} = useSession();
-const [comment , setComment] =  useState(comments);
-async function deleteComment(id) {
-  
-  const res = await axios.post('./api/deleteComment' , {id:id})
-  if (res.status === 200) {
-    toast.success('comment deleted!');
-  setComment(comment.filter( comment => comment.id !== id) );
-}
-}
+  const { data: session } = useSession();
+  const [comment, setComment] = useState(comments);
+  async function deleteComment(id) {
+
+    const res = await axios.post('./api/deleteComment', { id: id })
+    if (res.status === 200) {
+      toast.success('comment deleted!');
+      setComment(comment.filter(comment => comment.id !== id));
+    }
+  }
   // cleaning the data response
   const newData = data.postBy;
   // some de structuring
   const imgURL = newData.featuredImage.node.mediaItemUrl;
   const imgAlt = newData.featuredImage.node.altText;
   const postDate = newData.date.slice(0, 10);
-
   const router = useRouter();
 
   // If the page is not yet generated, this will be displayed
@@ -100,14 +100,14 @@ async function deleteComment(id) {
       <Head>
         <title>Behnoud Mostafaie | {data.postBy.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={data.postBy.content.slice(4,150) + '...'} />
+        <meta name="description" content={data.postBy.content.slice(4, 150) + '...'} />
       </Head>
 
       <Layout>
         <section className="md:w-2/3 p-6 bg-white mx-auto rounded">
           <div>
             <Image
-            priority="true"
+              priority="true"
               className="mx-auto"
               src={imgURL}
               alt={imgAlt}
@@ -122,6 +122,30 @@ async function deleteComment(id) {
 
             <article className="text-lg">{parse(data.postBy.content)} </article>
           </div>
+          {/* ****************** share buttons ******************** */}
+          <div className="p-6 bg-slate-100 rounded-md">
+            <h3 className="pb-8 text-center md:text-left">Please share this article:</h3>
+            <div className="flex justify-between lg:block">
+            <LinkedinShareButton title={data.postBy.title} url={postUrl}>
+              <LinkedinIcon round className="mx-2" size={42} />
+            </LinkedinShareButton>
+            <TwitterShareButton title={data.postBy.title} url={postUrl}>
+              <TwitterIcon round className="mx-2" size={42} />
+            </TwitterShareButton>
+            <TelegramShareButton title={data.postBy.title} url={postUrl}>
+              <TelegramIcon className="mx-2" round size={42} />
+            </TelegramShareButton>
+            <WhatsappShareButton title={data.postBy.title} url={postUrl}>
+              <WhatsappIcon round className="mx-2" size={42} />
+            </WhatsappShareButton>
+            <FacebookShareButton quote={data.postBy.title} url={postUrl}>
+              <FacebookIcon className="mx-2" size={42} round/>
+            </FacebookShareButton>
+            <EmailShareButton body={data.postBy.title} separator=" | " subject="Hey, I think you will like this article!" url={postUrl}>
+              <EmailIcon className="mx-2" size={42} round/>
+            </EmailShareButton>
+            </div>
+          </div>
 
           {/* ************ comments section ******* */}
           <div className="mx-auto my-14 " id="commentBox">
@@ -134,19 +158,19 @@ async function deleteComment(id) {
                   className="ml-6 m-4 flex flex-auto align-baseline items-center justify-between"
                 >
                   <div className="flex flex-auto align-baseline items-center">
-                  <Image
-                    className="rounded-full  mr-3 "
-                    src={x.profilePic}
-                    width={60}
-                    height={60}
-                    alt={x.altText}
-                  />
-                  <div className="ml-3">
-                    <h3> {x.name}</h3>
-                    <p> {x.idea}</p>
+                    <Image
+                      className="rounded-full  mr-3 "
+                      src={x.profilePic}
+                      width={60}
+                      height={60}
+                      alt={x.altText}
+                    />
+                    <div className="ml-3">
+                      <h3> {x.name}</h3>
+                      <p> {x.idea}</p>
+                    </div>
                   </div>
-                  </div>
-                  {  session != null && session.user.name === x.name  ? <button onClick={() => deleteComment(x.id)} className="btn">Delete</button> : null}
+                  {session != null && session.user.name === x.name ? <button onClick={() => deleteComment(x.id)} className="btn">Delete</button> : null}
                 </div>
               );
             })}
