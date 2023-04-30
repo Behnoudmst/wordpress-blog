@@ -123,26 +123,26 @@ export default function SinglePost({ data, comments, postUrl }) {
             <article className="text-lg">{parse(data.postBy.content)} </article>
           </div>
           {/* ****************** share buttons ******************** */}
-          <div className="p-6 bg-slate-100 rounded-md">
-            <h3 className="pb-8 text-center md:text-left">Please share this article:</h3>
-            <div className="flex justify-between lg:block">
+          <div className="lg:flex lg:justify-between py-4 md:p-6 bg-slate-100 rounded-md">
+            <h3 className=" text-center md:text-left">Please share this article:</h3>
+            <div className="flex justify-around lg:block">
             <LinkedinShareButton title={data.postBy.title} url={postUrl}>
-              <LinkedinIcon round className="mx-2" size={42} />
+              <LinkedinIcon round className="md:mx-2" size={42} />
             </LinkedinShareButton>
             <TwitterShareButton title={data.postBy.title} url={postUrl}>
-              <TwitterIcon round className="mx-2" size={42} />
+              <TwitterIcon round className="md:mx-2" size={42} />
             </TwitterShareButton>
             <TelegramShareButton title={data.postBy.title} url={postUrl}>
-              <TelegramIcon className="mx-2" round size={42} />
+              <TelegramIcon className="md:mx-2" round size={42} />
             </TelegramShareButton>
             <WhatsappShareButton title={data.postBy.title} url={postUrl}>
-              <WhatsappIcon round className="mx-2" size={42} />
+              <WhatsappIcon round className="md:mx-2" size={42} />
             </WhatsappShareButton>
             <FacebookShareButton quote={data.postBy.title} url={postUrl}>
-              <FacebookIcon className="mx-2" size={42} round/>
+              <FacebookIcon className="md:mx-2" size={42} round/>
             </FacebookShareButton>
             <EmailShareButton body={data.postBy.title} separator=" | " subject="Hey, I think you will like this article!" url={postUrl}>
-              <EmailIcon className="mx-2" size={42} round/>
+              <EmailIcon className="md:mx-2" size={42} round/>
             </EmailShareButton>
             </div>
           </div>
