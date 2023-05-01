@@ -61,13 +61,13 @@ export default function Home({ postsList }) {
         />
       </Head>
 
-      <section className="bg-black center p-10 py-20 lg:px-48 ">
+      <section className="bg-black center p-10 py-28 lg:px-48 ">
         <div className="flex flex-col-reverse md:flex-row lg:items-center justify-between">
           <div className="   text-white ">
             <h1 className="py-2 lg:text-4xl text-2xl font-bold">
-              Hi, This Is Behnoud
+              Hi, I am Behnoud
             </h1>
-            <h2 className=" text-white text-2xl py-6">I am a developer.</h2>
+            <h2 className=" text-white text-2xl py-6">Web Designer and Developer.</h2>
 
             <span className="flex gap-x-4 pb-6 ">
               <FaJs style={icons} /> <FaNodeJs style={icons} />

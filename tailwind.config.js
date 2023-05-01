@@ -7,7 +7,7 @@ module.exports = {
   theme: {
     extend: {
       boxShadow: {
-        'xl': '0 0 20px 1px rgba(0, 0, 0, 0.3)',
+        'xl': '0 0 15px 1px rgba(0, 0, 0, 0.3)',
       }
     },
   },

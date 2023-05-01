@@ -1,5 +1,5 @@
 import { FaLinkedin, FaInstagram, FaCodepen } from "react-icons/fa";
-
+import Link from "next/link";
 const icons = { color: "#808b99", fontSize: "30" };
 const Yer = new Date().getFullYear();
 
@@ -7,30 +7,23 @@ export default function Footer() {
   return (
     <section className="bg-black text-white md:p-8 p-8 lg:px-48 ">
       <footer className="md:flex md:gap-8 flex-1 ">
-        <div>
+        <div className="flex-1">
           <h2 className="text-2xl ">About Me</h2>
           <p>
-            I have started designing websites because I needed one to showcase
-            my photography. Then my friends wanted one for their photography and
-            eventually I became a web designer and I love it!
+          Are you looking for a web designer who can help you create a stunning online presence for your business? I am a professional web designer and developer with 7 years of experience creating custom websites that not only look great but also drive results for businesses of all sizes.
           </p>
         </div>
 
-        <div>
-          <h2 className="text-2xl ">Hire Me</h2>
+        <div className="flex-1">
+          <h2 className="text-2xl ">Get in touch</h2>
           <p>
-            I offer services related to web & app design and development. If
-            you have a website, I can help you improve the UX, load speed, SEO
-            and more. Contact me to discuss!
+          Don&apos;t wait to take your online presence to the next level. Contact me today to schedule a consultation and learn more about my custom web design services. Let me help you create a website that looks great, performs even better, and drives results for your business.
           </p>
-        </div>
-        <div>
-          <h2 className="text-2xl ">About This Website</h2>
-          <p>
-            This website is created as a front-end to my wordpress website. I
-            used NextJs to create this and wordpress is used as a headless cms.
-            This is the best solution to speed-up WordPress websites.
-          </p>
+          <Link href="mailto:behnoud.mostafaie@gmail.com" passHref>
+              <div className="cursor-pointer  py-1 mb-4 rounded-lg bg-gray-600  text-white  hover:outline hover:outline-1  w-40 text-center ">
+                Send me a message
+              </div>
+            </Link>
         </div>
       </footer>
       <div >
