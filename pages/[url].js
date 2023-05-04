@@ -48,7 +48,6 @@ export async function getStaticProps({ params }) {
     }
   }`;
 const postUrl = `https://behnoud.net/${params.url}`;
-console.log(postUrl)
   const data = await request(process.env.WEBSITEURL, query).then((res) => {
     return res;
   }).catch((e) => (console.log(e)));
@@ -64,7 +63,7 @@ console.log(postUrl)
   });
 
 
-  return { props: { data, comments,postUrl}, revalidate: 1800 }; //revalidateing the data from data base and updating if it has changes
+  return { props: { data, comments,postUrl}, revalidate: 1800 }; //revalidating the data from data base and updating if it has changes
 }
 
 
@@ -101,6 +100,8 @@ export default function SinglePost({ data, comments, postUrl }) {
         <title>Behnoud Mostafaie | {data.postBy.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta name="description" content={data.postBy.content.slice(4, 150) + '...'} />
+        <meta name="image" property="og:image" content={imgURL} />
+        <meta name="author" content="Behnoud Mostafaie" />
       </Head>
 
       <Layout>

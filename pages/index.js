@@ -53,7 +53,7 @@ export default function Home({ postsList }) {
   return (
     <>
       <Head>
-        <title>Behnoud Mostafaie | IT Project Manager & Web Developer</title>
+        <title>Behnoud Mostafaie | Project Manager & Web Developer</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
