@@ -95,7 +95,7 @@ export default function Home({ postsList }) {
         <h2 className="text-4xl ml-5 py-12 text-white text-center">Services</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8 lg:m-5 ">
           {/* ================ card 1 ============== */}
-          <div className=" text-white bg-black shadow-xl shadow-purple-500/70 rounded-xl p-6">
+          <div className=" text-white bg-black shadow-xl shadow-fuchsia-500/70 rounded-xl p-6">
             <FaGem className="mb-4" style={icons} />
 
             <h2 className="pt-0">Project Management</h2>
@@ -106,7 +106,7 @@ export default function Home({ postsList }) {
           </div>
 
           {/* ****************card 1 end************ */}
-          <div className=" text-white  bg-black shadow-xl shadow-purple-500/70 rounded-xl p-6">
+          <div className=" text-white  bg-black shadow-xl shadow-fuchsia-500/70 rounded-xl p-6">
             <FaCode className="mb-4" style={icons} />
 
             <h2 className="pt-0">Development</h2>
@@ -118,7 +118,7 @@ export default function Home({ postsList }) {
           {/* ********* card 2 end**************** */}
 
           {/* **************card 3 start ******************* */}
-          <div className=" text-white  bg-black shadow-xl shadow-purple-500/70 border-slate-50/50 rounded-xl p-6">
+          <div className=" text-white  bg-black shadow-xl shadow-fuchsia-500/70 border-slate-50/50 rounded-xl p-6">
             <FaWordpress className="mb-4" style={icons} />
 
             <h2 className="pt-0">WordPress</h2>
