@@ -1,22 +1,38 @@
-import Link from "next/link"
-import { useSession, signOut, signIn } from "next-auth/react"
+import Link from "next/link";
+import { useSession, signOut, signIn } from "next-auth/react";
+import { slide as Menu } from "react-burger-menu";
 
 export default function Navbar() {
-
   const { data: session } = useSession();
-
-    return (
-      <>
-          <nav className="bg-black md:flex flex-wrap items-center justify-items-stretch text-white justify-between md:px-14 basis1/3 gap-2 p-3">
-              <Link href="/" passHref ><h1 className=" cursor-pointer text-lg">Behnoud Mostafaie</h1></Link>
-              <div className="flex gap-6 justify-around text-right">
-                  <Link  href="/" passHref ><p className="text-white cursor-pointer">Home</p></Link>  
-                  {session ? <><p className="italic">{session.user.name}</p><span onClick={signOut} className="cursor-pointer text-white">Sign out</span> </> : <span className="cursor-pointer text-white" onClick={signIn}>Sign in</span> }     
-              </div>
-          </nav>
-      </>
-    )
+  function showSettings(event) {
+    event.preventDefault();
+  }
+  return (
+    <>
+      <nav className="bg-black fixed w-full z-10 text-white gap-2 p-3">
+        <Link href="/" passHref>
+          <h1 className=" cursor-pointer inline-block text-lg">Behnoud Mostafaie</h1>
+        </Link>
+        <div >
+          <Menu right={true} width={300}>
+            {session ? (
+              <>
+                <p className="italic bm-item">welcome {session.user.name}!</p>
+                <p onClick={signOut} className="hover:underline cursor-pointer bm-item text-white">
+                  Sign out
+                </p>{" "}
+              </>
+            ) : (
+              <p className="hover:underline bm-item cursor-pointer text-white" onClick={signIn}>
+                Sign in
+              </p>
+            )}
+            <Link href="/" passHref>
+              <p className="text-white cursor-pointer bm-item hover:underline">Home</p>
+            </Link>
+          </Menu>
+        </div>
+      </nav>
+    </>
+  );
 }
-
-
-

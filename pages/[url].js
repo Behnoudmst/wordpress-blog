@@ -104,7 +104,7 @@ export default function SinglePost({ data, comments, postUrl }) {
       </Head>
 
       <Layout>
-        <section className="md:w-2/3 p-6 bg-white mx-auto rounded">
+        <section className="md:w-2/3 p-6 pt-24 bg-white mx-auto rounded">
           <div>
             <Image
               priority="true"
