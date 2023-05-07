@@ -37,18 +37,18 @@ export async function getAllPostLinks() {
   return postLinks;
 }
 
-export default async function getPostData(url) {
-  const data = await request("https://wp.behnoud.net/ben", query).then((res) => {
-    return res;
-  });
-  const postsdata = await data.posts.edges;
+// export default async function getPostData(url) {
+//   const data = await request("https://wp.behnoud.net/ben", query).then((res) => {
+//     return res;
+//   });
+//   const postsdata = await data.posts.edges;
 
-  postsdata.filter((x) => {
-    return x.node.uri == url;
-  });
-  // Combine the data with the url
-  return {
-    url,
-    post,
-  };
-}
+//   postsdata.filter((x) => {
+//     return x.node.uri == url;
+//   });
+//   // Combine the data with the url
+//   return {
+//     url,
+//     post,
+//   };
+// }

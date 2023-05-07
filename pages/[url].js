@@ -11,12 +11,23 @@ import { useSession } from "next-auth/react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import { useState } from "react";
-import { FacebookShareButton, FacebookIcon, LinkedinShareButton,LinkedinIcon, TelegramShareButton,TelegramIcon, WhatsappShareButton,WhatsappIcon, EmailShareButton, EmailIcon, TwitterShareButton, TwitterIcon } from "react-share";
-
+import {
+  FacebookShareButton,
+  FacebookIcon,
+  LinkedinShareButton,
+  LinkedinIcon,
+  TelegramShareButton,
+  TelegramIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
+  EmailShareButton,
+  EmailIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from "react-share";
 
 export async function getStaticPaths() {
   const paths = await getAllPostLinks();
-
   return {
     paths,
     fallback: "blocking",
@@ -47,10 +58,12 @@ export async function getStaticProps({ params }) {
       }
     }
   }`;
-const postUrl = `https://behnoud.net/${params.url}`;
-  const data = await request(process.env.WEBSITEURL, query).then((res) => {
-    return res;
-  }).catch((e) => (console.log(e)));
+  const postUrl = `https://behnoud.net/${params.url}`;
+  const data = await request(process.env.WEBSITEURL, query)
+    .then((res) => {
+      return res;
+    })
+    .catch((e) => console.log(e));
 
   const comments = await prisma.comment.findMany({
     where: { postName: data.postBy.title },
@@ -62,23 +75,19 @@ const postUrl = `https://behnoud.net/${params.url}`;
     },
   });
 
-
-  return { props: { data, comments,postUrl}, revalidate: 1800 }; //revalidating the data from data base and updating if it has changes
+  return { props: { data, comments, postUrl }, revalidate: 1800 }; //revalidating the data from data base and updating if it has changes
 }
-
 
 // rendering page here
 
 export default function SinglePost({ data, comments, postUrl }) {
-
   const { data: session } = useSession();
   const [comment, setComment] = useState(comments);
   async function deleteComment(id) {
-
-    const res = await axios.post('./api/deleteComment', { id: id })
+    const res = await axios.post("./api/deleteComment", { id: id });
     if (res.status === 200) {
-      toast.success('comment deleted!');
-      setComment(comment.filter(comment => comment.id !== id));
+      toast.success("comment deleted!");
+      setComment(comment.filter((comment) => comment.id !== id));
     }
   }
   // cleaning the data response
@@ -99,7 +108,10 @@ export default function SinglePost({ data, comments, postUrl }) {
       <Head>
         <title>Behnoud Mostafaie | {data.postBy.title}</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-        <meta name="description" content={data.postBy.content.slice(4, 150) + '...'} />
+        <meta
+          name="description"
+          content={data.postBy.content.slice(4, 150) + "..."}
+        />
         <meta name="image" property="og:image" content={imgURL} />
         <meta name="author" content="Behnoud Mostafaie" />
       </Head>
@@ -125,26 +137,33 @@ export default function SinglePost({ data, comments, postUrl }) {
           </div>
           {/* ****************** share buttons ******************** */}
           <div className="lg:flex lg:justify-between p-4 md:p-6 bg-slate-100 rounded-md">
-            <h3 className=" text-center md:text-left">Please share this article:</h3>
+            <h3 className=" text-center md:text-left">
+              Please share this article:
+            </h3>
             <div className="flex justify-between">
-            <LinkedinShareButton title={data.postBy.title} url={postUrl}>
-              <LinkedinIcon round className="md:mx-2" size={42} />
-            </LinkedinShareButton>
-            <TwitterShareButton title={data.postBy.title} url={postUrl}>
-              <TwitterIcon round className="md:mx-2" size={42} />
-            </TwitterShareButton>
-            <TelegramShareButton title={data.postBy.title} url={postUrl}>
-              <TelegramIcon className="md:mx-2" round size={42} />
-            </TelegramShareButton>
-            <WhatsappShareButton title={data.postBy.title} url={postUrl}>
-              <WhatsappIcon round className="md:mx-2" size={42} />
-            </WhatsappShareButton>
-            <FacebookShareButton quote={data.postBy.title} url={postUrl}>
-              <FacebookIcon className="md:mx-2" size={42} round/>
-            </FacebookShareButton>
-            <EmailShareButton body={data.postBy.title} separator=" | " subject="Hey, I think you will like this article!" url={postUrl}>
-              <EmailIcon className="md:mx-2" size={42} round/>
-            </EmailShareButton>
+              <LinkedinShareButton title={data.postBy.title} url={postUrl}>
+                <LinkedinIcon round className="md:mx-2" size={42} />
+              </LinkedinShareButton>
+              <TwitterShareButton title={data.postBy.title} url={postUrl}>
+                <TwitterIcon round className="md:mx-2" size={42} />
+              </TwitterShareButton>
+              <TelegramShareButton title={data.postBy.title} url={postUrl}>
+                <TelegramIcon className="md:mx-2" round size={42} />
+              </TelegramShareButton>
+              <WhatsappShareButton title={data.postBy.title} url={postUrl}>
+                <WhatsappIcon round className="md:mx-2" size={42} />
+              </WhatsappShareButton>
+              <FacebookShareButton quote={data.postBy.title} url={postUrl}>
+                <FacebookIcon className="md:mx-2" size={42} round />
+              </FacebookShareButton>
+              <EmailShareButton
+                body={data.postBy.title}
+                separator=" | "
+                subject="Hey, I think you will like this article!"
+                url={postUrl}
+              >
+                <EmailIcon className="md:mx-2" size={42} round />
+              </EmailShareButton>
             </div>
           </div>
 
@@ -157,22 +176,28 @@ export default function SinglePost({ data, comments, postUrl }) {
               return (
                 <div
                   key={x.id}
-                  className="ml-6 m-4 flex flex-auto align-baseline items-center justify-between"
+                  className="my-3 p-3 rounded-lg md:flex flex-auto  items-center justify-between border border-spacing-1 bg-slate-50 border-slate-200"
                 >
-                  <div className="flex p-2 rounded-lg bg-slate-50 border-slate-200 border border-spacing-1 flex-auto align-baseline items-center">
+                  <div className="flex w-full items-center">
+                    <div className="self-start">
                     <Image
-                      className="rounded-full  mr-3 "
+                      className="rounded-full "
                       src={x.profilePic}
                       width={60}
                       height={60}
                       alt={x.altText}
                     />
-                    <div className="ml-3">
-                      <h3> {x.name}</h3>
+                    </div>
+                    <div className="ml-3 flex-1 ">
+                      <h4 className="font-bold"> {x.name}</h4>
                       <p> {x.idea}</p>
                     </div>
                   </div>
-                  {session != null && session.user.name === x.name ? <button onClick={() => deleteComment(x.id)} className="btn">Delete</button> : null}
+                  {session != null && session.user.name === x.name ? (
+                    <button onClick={() => deleteComment(x.id)} className="btn self-start w-20">
+                      Delete
+                    </button>
+                  ) : null}
                 </div>
               );
             })}
