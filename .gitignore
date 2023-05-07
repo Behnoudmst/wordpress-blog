@@ -15,6 +15,7 @@
 # production
 /build
 /prisma/database.db
+ads.txt
 # misc
 .DS_Store
 *.pem

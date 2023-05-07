@@ -66,7 +66,6 @@ export async function getStaticProps({ params }) {
       return res;
     })
     .catch((e) => console.log(e));
-
   const comments = await prisma.comment.findMany({
     where: { postName: data.postBy.title },
     select: {
@@ -82,7 +81,7 @@ export async function getStaticProps({ params }) {
 
 // rendering page here
 
-export default function SinglePost({ data, comments, postUrl }) {
+export default function SinglePost({ data, comments, postUrl, }) {
   const { data: session } = useSession();
   const [comment, setComment] = useState(comments);
   async function deleteComment(id) {
@@ -94,12 +93,11 @@ export default function SinglePost({ data, comments, postUrl }) {
   }
   // cleaning the data response
   const newData = data.postBy;
-  // some de structuring
+  // some de-structuring
   const imgURL = newData.featuredImage.node.mediaItemUrl;
   const imgAlt = newData.featuredImage.node.altText;
-  const postDate = newData.date.slice(0, 10);
+  const postContent = parse(newData.content);
   const router = useRouter();
-
   // If the page is not yet generated, this will be displayed
   // initially until getStaticProps() finishes running
   if (router.isFallback) {
@@ -132,7 +130,7 @@ export default function SinglePost({ data, comments, postUrl }) {
 
             <h1 className="text-3xl py-4">{data.postBy.title}</h1>
               <div>{adsBox}</div>
-            <article className="text-lg">{parse(data.postBy.content)} </article>
+            <div className="text-lg">{postContent}</div>
           </div>
 
           {/* ****************** share buttons ******************** */}
