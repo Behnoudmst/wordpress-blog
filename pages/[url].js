@@ -25,6 +25,8 @@ import {
   TwitterShareButton,
   TwitterIcon,
 } from "react-share";
+import { adsBox } from "../constants/constants";
+
 
 export async function getStaticPaths() {
   const paths = await getAllPostLinks();
@@ -129,12 +131,10 @@ export default function SinglePost({ data, comments, postUrl }) {
             />
 
             <h1 className="text-3xl py-4">{data.postBy.title}</h1>
-            <p className="text-lg pb-9 font-semibold ">
-              Published on {postDate}
-            </p>
-
+              <div>{adsBox}</div>
             <article className="text-lg">{parse(data.postBy.content)} </article>
           </div>
+
           {/* ****************** share buttons ******************** */}
           <div className="lg:flex lg:justify-between p-4 md:p-6 bg-slate-100 rounded-md">
             <h3 className=" text-center md:text-left">
@@ -180,13 +180,13 @@ export default function SinglePost({ data, comments, postUrl }) {
                 >
                   <div className="flex w-full items-center">
                     <div className="self-start">
-                    <Image
-                      className="rounded-full "
-                      src={x.profilePic}
-                      width={60}
-                      height={60}
-                      alt={x.altText}
-                    />
+                      <Image
+                        className="rounded-full "
+                        src={x.profilePic}
+                        width={60}
+                        height={60}
+                        alt={x.altText}
+                      />
                     </div>
                     <div className="ml-3 flex-1 ">
                       <h4 className="font-bold"> {x.name}</h4>
@@ -194,7 +194,10 @@ export default function SinglePost({ data, comments, postUrl }) {
                     </div>
                   </div>
                   {session != null && session.user.name === x.name ? (
-                    <button onClick={() => deleteComment(x.id)} className="btn self-start w-20">
+                    <button
+                      onClick={() => deleteComment(x.id)}
+                      className="btn self-start w-20"
+                    >
                       Delete
                     </button>
                   ) : null}
