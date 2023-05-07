@@ -106,7 +106,7 @@ export default function SinglePost({ data, comments, postUrl, }) {
   return (
     <>
       <Head>
-        <title>Behnoud Mostafaie | {data.postBy.title}</title>
+        <title>{data.postBy.title} | Behnoud Mostafaie</title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
