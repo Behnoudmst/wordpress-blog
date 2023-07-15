@@ -66,6 +66,7 @@ export async function getStaticProps({ params }) {
       return res;
     })
     .catch((e) => console.log(e));
+    
   const comments = await prisma.comment.findMany({
     where: { postName: data.postBy.title },
     select: {
@@ -76,14 +77,15 @@ export async function getStaticProps({ params }) {
     },
   });
 
-  return { props: { data, comments, postUrl }, revalidate: 1800 }; //revalidating the data from data base and updating if it has changes
+     
+  return { props: { data, comments, postUrl }, revalidate: 18000 }; //revalidating the data from data base and updating if it has changes
 }
 
 // rendering page here
 
 export default function SinglePost({ data, comments, postUrl, }) {
   const { data: session } = useSession();
-  const [comment, setComment] = useState(comments);
+  const [comment, setComment] = useState(comments ? comments : "");
   async function deleteComment(id) {
     const res = await axios.post("./api/deleteComment", { id: id });
     if (res.status === 200) {
@@ -93,7 +95,7 @@ export default function SinglePost({ data, comments, postUrl, }) {
   }
   // cleaning the data response
   const newData = data.postBy;
-  // some de-structuring
+  //some de-structuring
   const imgURL = newData.featuredImage.node.mediaItemUrl;
   const imgAlt = newData.featuredImage.node.altText;
   const postContent = parse(newData.content);
