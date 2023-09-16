@@ -87,7 +87,7 @@ export default function SinglePost({ data, comments, postUrl, }) {
   const { data: session } = useSession();
   const [comment, setComment] = useState(comments ? comments : "");
   async function deleteComment(id) {
-    const res = await axios.post("./api/deleteComment", { id: id });
+    const res = await axios.post(`https://${process.env.VERCEL_URL}/api/deleteComment`, { id: id });
     if (res.status === 200) {
       toast.success("comment deleted!");
       setComment(comment.filter((comment) => comment.id !== id));
