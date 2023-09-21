@@ -14,7 +14,7 @@
     "axios": "^0.26.1",
     "docker": "^0.2.14",
     "framer-motion": "^10.9.1",
-    "graphql": "^16.0.1",
+    "graphql": "^16.8.1",
     "graphql-request": "^3.6.1",
     "html-react-parser": "^1.4.2",
     "next": "^12.1.5",
