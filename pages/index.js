@@ -67,7 +67,7 @@ export default function Home({ postsList }) {
             <h1 className="py-2 lg:text-4xl text-2xl font-bold">
               Hi, I am Behnoud
             </h1>
-            <h2 className=" text-white text-2xl py-6">Web Designer and Developer.</h2>
+            <h2 className=" text-white text-2xl py-6">Full-Stack Developer.</h2>
 
             <span className="flex gap-x-4 pb-6 ">
               <FaJs style={icons} /> <FaNodeJs style={icons} />
@@ -109,7 +109,7 @@ export default function Home({ postsList }) {
           <div className=" text-white  bg-black shadow-xl shadow-fuchsia-500/70 rounded-xl p-6">
             <FaCode className="mb-4" style={icons} />
 
-            <h2 className="pt-0">Development</h2>
+            <h2 className="pt-0">Full-Stack Development</h2>
             <p>
               I can design and develop IT solutions based on your business
               need. Contact me to discuss your project
