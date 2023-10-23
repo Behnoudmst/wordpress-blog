@@ -82,6 +82,7 @@ export default function Home({ postsList }) {
           </div>
           <Image
             priority="true"
+            loading="eager"
             className="grayscale object-contain"
             alt="Behnoud Mostafaie"
             src={profile}
