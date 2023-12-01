@@ -135,7 +135,7 @@ export default function Home({ postsList }) {
 
       {/* ************blog section start ***************** */}
       <section className=" bg-slate-900 md:px-8 lg:px-40 pb-8 ">
-        <h2 className=" text-center text-white text-4xl py-12">Blog (in ingelese)</h2>
+        <h2 className=" text-center text-white text-4xl py-12">Blog (in inglese)</h2>
 
         <div className="grid pb-8 snap-x snap-mandatory md:snap-normal overflow-x-auto md:overflow-hidden md:grid-cols-2 lg:grid-cols-3 grid-flow-col md:grid-flow-row gap-4 md:gap-6 lg:m-5	">
           {postsList.map((x, index) => {
