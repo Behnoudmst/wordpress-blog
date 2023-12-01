@@ -59,7 +59,7 @@ export default function Home({ postsList }) {
           name="description"
           content="Sono Behnoud Mostafaie, IT manager e sviluppatore web con oltre 7 anni di esperienza. Se avete bisogno di un sito web, di un'applicazione web o di un'applicazione mobile, posso aiutarvi a farlo nel modo giusto."
         />
-        <meta httpEquiv="content-language" content="it-IT"></meta>
+        <meta httpEquiv="content-language" content="it"></meta>
       </Head>
 
       <section className="bg-black center p-10 py-28 lg:px-48 ">
