@@ -60,7 +60,7 @@ export default function Home({ postsList }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="Sono Behnoud Mostafaie, IT manager e sviluppatore web con oltre 7 anni di esperienza. Offro servizi professionali di sviluppo web e mobile. Contattami per creare il tuo sito o la tua app ideale."
+          content="Hai bisogno di un esperto sviluppatore web per realizzare il tuo progetto online? Sono qui per aiutarti! Con competenze avanzate e una vasta esperienza, offro servizi di sviluppo web personalizzati. Contattami oggi per trasformare la tua visione digitale in realtà."
         />
       </Head>
 
@@ -97,9 +97,18 @@ export default function Home({ postsList }) {
         </div>
       </section>
       {/* ============== services section start ==================== */}
+      <section className="bg-slate-900 lg:px-40 px-8 pb-8 text-slate-50 text-center">
+        <h1>Sviluppatore Web Specializzato per Progetti Personalizzati</h1>
+        <p>
+          Se stai cercando un affidabile sviluppatore web per portare avanti la
+          tua presenza online, sei nel posto giusto. Come sviluppatore web
+          esperto con anni di esperienza nel settore, offro soluzioni su misura
+          per soddisfare le tue esigenze digitali.
+        </p>
+      </section>
       <section className="bg-slate-900 lg:px-40 px-8 pb-8">
         <h2 className="text-4xl ml-5 py-12 text-white text-center">
-          Servizi che fornisco
+          I Miei Servizi:
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8 lg:m-5 ">
           {/* ================ card 1 ============== */}
@@ -142,30 +151,34 @@ export default function Home({ postsList }) {
           {/* *************** card end **************** */}
         </div>
       </section>
-
-      {/* ************blog section start ***************** */}
-      <section className=" bg-slate-900 md:px-8 lg:px-40 pb-8 ">
-        <h2 className=" text-center text-white text-4xl py-12">
-          Blog (in inglese)
-        </h2>
-
-        <div className="grid pb-8 snap-x snap-mandatory md:snap-normal overflow-x-auto md:overflow-hidden md:grid-cols-2 lg:grid-cols-3 grid-flow-col md:grid-flow-row gap-4 md:gap-6 lg:m-5	">
-          {postsList.map((x, index) => {
-            const excerpt = x.node.excerpt;
-            const datePublished = x.node.date.slice(0, 10);
-            const imgurl = x.node.featuredImage.node.mediaItemUrl;
-            return (
-              <Card
-                key={index}
-                title={x.node.title}
-                date={datePublished}
-                description={parse(excerpt)}
-                src={imgurl}
-                link={x.node.uri}
-              />
-            );
-          })}
-        </div>
+      <section className="bg-slate-800 lg:px-40 px-8 pb-12 py-16 text-slate-50">
+        <h2>Perché Scegliere Me:</h2>
+        <ul>
+          <li>
+            <strong>Esperienza Comprovata:</strong> Con oltre 7 anni di
+            esperienza, ho lavorato su una vasta gamma di progetti web di
+            successo.
+          </li>
+          <li>
+            <strong>Approccio Collaborativo:</strong> Lavoro a stretto contatto
+            con i clienti per comprendere appieno le loro esigenze e offrire
+            soluzioni personalizzate.
+          </li>
+          <li>
+            <strong>Tecnologie All&apos;avanguardia: </strong> Utilizzo le
+            ultime tecnologie e le migliori pratiche per garantire risultati di
+            alta qualità.
+          </li>
+        </ul>
+      </section>
+      <section className=" lg:px-[25%] px-8 py-16 text-center text-white bg-slate-900">
+        <h3 className="text-xl lg:text-4xl leading-6">
+          Non importa se hai un&apos;idea chiara del tuo progetto o se stai cercando
+          consulenza. Sono qui per discutere delle tue esigenze e trovare la
+          soluzione perfetta per te. <Link href="mailto:behnoud.mostafaie@gmail.com" className="underline">Contattami oggi</Link> per iniziare il tuo viaggio
+          verso il successo online con un esperto sviluppatore web al tuo
+          fianco.
+        </h3>
       </section>
       <Footer />
     </>
