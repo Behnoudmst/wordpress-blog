@@ -53,13 +53,15 @@ export default function Home({ postsList }) {
   return (
     <>
       <Head>
-        <title>Behnoud Mostafaie | Sviluppatore web a Milano | full stack MERN </title>
+        <meta httpEquiv="content-language" content="it" />
+        <title>
+          Behnoud Mostafaie | Sviluppatore web a Milano | full stack MERN{" "}
+        </title>
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="Sono Behnoud Mostafaie, IT manager e sviluppatore web con oltre 7 anni di esperienza. Se avete bisogno di un sito web, di un'applicazione web o di un'applicazione mobile, posso aiutarvi a farlo nel modo giusto."
+          content="Sono Behnoud Mostafaie, IT manager e sviluppatore web con oltre 7 anni di esperienza. Offro servizi professionali di sviluppo web e mobile. Contattami per creare il tuo sito o la tua app ideale."
         />
-        <meta httpEquiv="content-language" content="it"></meta>
       </Head>
 
       <section className="bg-black center p-10 py-28 lg:px-48 ">
@@ -68,7 +70,9 @@ export default function Home({ postsList }) {
             <h1 className="py-2 lg:text-4xl text-2xl font-bold">
               Ciao, Sono Behnoud!
             </h1>
-            <h2 className=" text-white text-2xl py-6">Sviluppatore full-stack.</h2>
+            <h2 className=" text-white text-2xl py-6">
+              Sviluppatore full-stack.
+            </h2>
 
             <span className="flex gap-x-4 pb-6 ">
               <FaJs style={icons} /> <FaNodeJs style={icons} />
@@ -77,7 +81,7 @@ export default function Home({ postsList }) {
             </span>
             <Link href="mailto:behnoud.mostafaie@gmail.com" passHref>
               <div className="cursor-pointer  py-2 rounded-lg bg-gray-600  text-white  hover:outline hover:outline-1  w-36 text-center ">
-              contattatemi
+                contattatemi
               </div>
             </Link>
           </div>
@@ -94,7 +98,9 @@ export default function Home({ postsList }) {
       </section>
       {/* ============== services section start ==================== */}
       <section className="bg-slate-900 lg:px-40 px-8 pb-8">
-        <h2 className="text-4xl ml-5 py-12 text-white text-center">Servizi che fornisco</h2>
+        <h2 className="text-4xl ml-5 py-12 text-white text-center">
+          Servizi che fornisco
+        </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 grid-flow-row gap-8 lg:m-5 ">
           {/* ================ card 1 ============== */}
           <div className=" text-white bg-black shadow-xl shadow-fuchsia-500/70 rounded-xl p-6">
@@ -102,8 +108,9 @@ export default function Home({ postsList }) {
 
             <h2 className="pt-0">Gestione dei progetti</h2>
             <p>
-            Sono un project manager e posso occuparmi dei vostri prodotti digitali e gestire il team di sviluppo.
-              prodotti digitali e gestire il team di sviluppo.
+              Sono un project manager e posso occuparmi dei vostri prodotti
+              digitali e gestire il team di sviluppo. prodotti digitali e
+              gestire il team di sviluppo.
             </p>
           </div>
 
@@ -113,8 +120,9 @@ export default function Home({ postsList }) {
 
             <h2 className="pt-0">Sviluppo full-stack</h2>
             <p>
-            Posso progettare e sviluppare soluzioni informatiche in base alle vostre esigenze aziendali.
-            Contattatemi per discutere il vostro progetto
+              Posso progettare e sviluppare soluzioni informatiche in base alle
+              vostre esigenze aziendali. Contattatemi per discutere il vostro
+              progetto
             </p>
           </div>
           {/* ********* card 2 end**************** */}
@@ -125,7 +133,9 @@ export default function Home({ postsList }) {
 
             <h2 className="pt-0">WordPress</h2>
             <p>
-            Posso ottimizzare e mantenere il vostro sito web wordpress o creare un frontend separato per esso e velocizzarlo di almeno 5 volte!
+              Posso ottimizzare e mantenere il vostro sito web wordpress o
+              creare un frontend separato per esso e velocizzarlo di almeno 5
+              volte!
             </p>
           </div>
 
@@ -135,7 +145,9 @@ export default function Home({ postsList }) {
 
       {/* ************blog section start ***************** */}
       <section className=" bg-slate-900 md:px-8 lg:px-40 pb-8 ">
-        <h2 className=" text-center text-white text-4xl py-12">Blog (in inglese)</h2>
+        <h2 className=" text-center text-white text-4xl py-12">
+          Blog (in inglese)
+        </h2>
 
         <div className="grid pb-8 snap-x snap-mandatory md:snap-normal overflow-x-auto md:overflow-hidden md:grid-cols-2 lg:grid-cols-3 grid-flow-col md:grid-flow-row gap-4 md:gap-6 lg:m-5	">
           {postsList.map((x, index) => {
