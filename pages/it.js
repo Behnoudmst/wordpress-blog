@@ -172,7 +172,7 @@ export default function Home({ postsList }) {
         </ul>
       </section>
       <section className=" lg:px-[25%] px-8 py-16 text-center text-white bg-slate-900">
-        <h3 className="text-xl lg:text-4xl leading-6">
+        <h3 className="text-2xl lg:text-5xl leading-6">
           Non importa se hai un&apos;idea chiara del tuo progetto o se stai cercando
           consulenza. Sono qui per discutere delle tue esigenze e trovare la
           soluzione perfetta per te. <Link href="mailto:behnoud.mostafaie@gmail.com" className="underline">Contattami oggi</Link> per iniziare il tuo viaggio
