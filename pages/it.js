@@ -89,7 +89,7 @@ export default function Home({ postsList }) {
             priority="true"
             loading="eager"
             className="grayscale object-contain"
-            alt="Behnoud Mostafaie"
+            alt="Sviluppatore Web - Behnoud Mostafaie"
             src={profile}
             height={300}
             width={300}
