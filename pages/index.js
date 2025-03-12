@@ -57,7 +57,7 @@ export default function Home({ postsList }) {
         <meta name="viewport" content="initial-scale=1.0, width=device-width" />
         <meta
           name="description"
-          content="I'm Behnoud Mostafaie, IT manager and web developer with over 7 years of experience. If you need a website, web app or mobile app, I can help you do it the right way. let's Connect!"
+          content="I'm Behnoud Mostafaie, IT manager and web developer with over 5 years of experience. If you need a website, web app or mobile app, I can help you do it the right way. let's Connect!"
         />
       </Head>
 
@@ -65,18 +65,18 @@ export default function Home({ postsList }) {
         <div className="flex flex-col-reverse md:flex-row lg:items-center justify-between">
           <div className="   text-white ">
             <h1 className="py-2 lg:text-4xl text-2xl font-bold">
-              Hi, I am Behnoud
+              Turn Your Vision into Reality: Full-Stack Developer & Project Manager with 5+ Years of Experience.
             </h1>
-            <h2 className=" text-white text-2xl py-6">Full-Stack Developer.</h2>
+            <h2 className=" text-white text-2xl py-6">Struggling with slow websites or mismanaged projects? Let&apos;s fix that.</h2>
 
             <span className="flex gap-x-4 pb-6 ">
               <FaJs style={icons} /> <FaNodeJs style={icons} />
               <FaReact style={icons} />
               <SiNextdotjs style={icons} />
             </span>
-            <Link href="mailto:behnoud.mostafaie@gmail.com" passHref>
+            <Link href="mailto:hi@behnoud.net" passHref>
               <div className="cursor-pointer  py-2 rounded-lg bg-gray-600  text-white  hover:outline hover:outline-1  w-36 text-center ">
-                CONTACT ME
+                Let&apos;s Build Something Amazing →
               </div>
             </Link>
           </div>
@@ -112,8 +112,7 @@ export default function Home({ postsList }) {
 
             <h2 className="pt-0">Full-Stack Development</h2>
             <p>
-              I can design and develop IT solutions based on your business
-              need. Contact me to discuss your project
+             I&apos;ve helped businesses increase website speed by 300% and reduce project timelines and cost by 50%
             </p>
           </div>
           {/* ********* card 2 end**************** */}
